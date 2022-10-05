@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+
+/camera_shop_build
+
 # testing
 /coverage
 
