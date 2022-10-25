@@ -5,7 +5,7 @@ export enum AppRoute {
   About = '/about',
   Basket = '/basket',
   NotFound = '/*',
-  ProductCard = '/catalog/:id'
+  ProductCard = '/catalog'
 }
 
 
@@ -18,4 +18,11 @@ export enum ApiRoute {
   Review = '/reviews',
   Coupon = '/coupons',
   Order = '/orders',
+}
+
+export const TIMEOUT_SHOW_ERROR = 5000;
+
+export enum HttpCode {
+  BAD_REQUEST = 400,
+  NOT_FOUND = 404,
 }

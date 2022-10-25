@@ -17,7 +17,7 @@ export type CameraType = {
 
 export type CamerasType = CameraType [];
 
-export type Review = {
+export type ReviewType = {
   id: string;
   userName: string;
   advantage: string;
@@ -28,11 +28,16 @@ export type Review = {
   cameraId: number;
 };
 
-export type Promo = {
+export type PromoType = {
   id: number;
-  name: number;
-  previewImg: number;
-  previewImg2x: number;
-  previewImgWebp: number;
-  previewImgWebp2x: number;
+  name: string;
+  previewImg: string;
+  previewImg2x: string;
+  previewImgWebp: string;
+  previewImgWebp2x: string;
+};
+
+export type QueryArgumentType = {
+  sortType: string | undefined;
+  sortOrder: string | undefined;
 };

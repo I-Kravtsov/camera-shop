@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 import { store } from './store';
-import { fetchCamerasList } from './store/api-action';
+import { fetchPromo, fetchCamerasList } from './store/api-action';
+import { Provider } from 'react-redux';
+import ErrorMessage from './components/error-message/error-message';
 
 store.dispatch(fetchCamerasList());
+store.dispatch(fetchPromo());
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -12,6 +15,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ErrorMessage />
+      <App />
+    </Provider>
   </React.StrictMode>,
 );
