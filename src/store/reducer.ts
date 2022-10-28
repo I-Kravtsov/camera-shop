@@ -1,7 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit';
 // import { ErrorType } from '../types/error';
 import { CamerasType, PromoType, QueryArgumentType } from '../types/types';
-import { loadCameras, loadPromo, setError, setSortType, setSortOrder } from './action';
+import { loadCameras, loadPromo, setError, setSortType, setSortOrder, setPriceRangeGte, setPriceRangeLte } from './action';
 
 type InitialStateType = {
   isDataLoaded: boolean;
@@ -26,6 +26,8 @@ const initialState: InitialStateType = {
   queryArgument: {
     sortType: '',
     sortOrder: '',
+    priceGte: '',
+    priceLte: '',
   }
 };
 
@@ -47,6 +49,12 @@ const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setSortOrder, (state, action) => {
       state.queryArgument.sortOrder = action.payload;
+    })
+    .addCase(setPriceRangeGte, (state, action) => {
+      state.queryArgument.priceGte = action.payload;
+    })
+    .addCase(setPriceRangeLte, (state, action) => {
+      state.queryArgument.priceLte = action.payload;
     });
 });
 

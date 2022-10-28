@@ -40,4 +40,6 @@ export type PromoType = {
 export type QueryArgumentType = {
   sortType: string | undefined;
   sortOrder: string | undefined;
+  priceGte: number | string;
+  priceLte: number | string;
 };

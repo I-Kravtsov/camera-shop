@@ -1,4 +1,17 @@
+import React from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { setPriceRangeGte, setPriceRangeLte } from '../../store/action';
+
 function CatalogFilter():JSX.Element {
+  const dispatch = useAppDispatch();
+  const priceFromValue = useAppSelector((state) => state.queryArgument.priceGte);
+  const handlePriceFromChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setPriceRangeGte(Number(evt.target.value)));
+  };
+  const handlePriceToChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setPriceRangeLte(Number(evt.target.value)));
+  };
+
   return (
     <div className="catalog-filter">
       <form action="#">
@@ -12,12 +25,22 @@ function CatalogFilter():JSX.Element {
           <div className="catalog-filter__price-range">
             <div className="custom-input">
               <label>
-                <input type="number" name="price" placeholder="от" />
+                <input onChange={(evt) => {
+                  evt.preventDefault();
+                  handlePriceFromChange(evt);
+                }}
+                type="number" name="price" value={priceFromValue} placeholder="от"
+                />
               </label>
             </div>
             <div className="custom-input">
               <label>
-                <input type="number" name="priceUp" placeholder="до" />
+                <input onChange={(evt) => {
+                  evt.preventDefault();
+                  handlePriceToChange(evt);
+                }}
+                type="number" name="priceUp" placeholder="до"
+                />
               </label>
             </div>
           </div>

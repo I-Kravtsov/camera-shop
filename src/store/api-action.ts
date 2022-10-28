@@ -9,7 +9,9 @@ export const fetchCamerasList = createAsyncThunk(
   'data/fetchCamerasList',
   async (queryArgument?: QueryArgumentType | undefined) => {
     try {
-      const {data} = await api.get<CamerasType>(`${ApiRoute.CamerasList}?_sort=${queryArgument?.sortType || 0}&_order=${queryArgument?.sortOrder || 0}`);
+      const {data} = await api.get<CamerasType>(
+        `${ApiRoute.CamerasList}?_sort=${queryArgument?.sortType || 0}&_order=${queryArgument?.sortOrder || 0}&price_gte=${queryArgument?.priceGte || 0}&price_lte=${queryArgument?.priceLte || Infinity}`
+      );
       store.dispatch(loadCameras(data));
     } catch(error) {
       errorHandle(error);

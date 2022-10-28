@@ -6,4 +6,6 @@ export const loadPromo = createAction<PromoType>('data/loadPromo');
 export const setError = createAction<string>('setError');
 export const setSortType = createAction<string>('setSortType');
 export const setSortOrder = createAction<string>('setSortOrder');
+export const setPriceRangeGte = createAction<number>('setPriceRangeGte');
+export const setPriceRangeLte = createAction<number>('setPriceRangeLte');
 

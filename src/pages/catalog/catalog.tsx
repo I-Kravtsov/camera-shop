@@ -1,5 +1,5 @@
 import Banner from '../../components/banner/banner';
-// import CatalogFilter from '../../components/catalog-filter/catalog-filter';
+import CatalogFilter from '../../components/catalog-filter/catalog-filter';
 import CatalogSort from '../../components/catalog-sort/catalog-sort';
 import { CamerasType } from '../../types/types';
 import { useAppSelector } from '../../hooks';
@@ -38,7 +38,7 @@ function Catalog(): JSX.Element {
             </h1>
             <div className="page-content__columns">
               <div className="catalog__aside">
-                {/* <CatalogFilter /> */}
+                <CatalogFilter />
               </div>
               <div className="catalog__content">
                 <CatalogSort />
